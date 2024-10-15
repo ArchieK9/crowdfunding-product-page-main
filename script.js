@@ -176,7 +176,7 @@
 
 "use strict";
 
-// DOM element references
+// DOM element reference
 let book = document.getElementById("book");
 let outerCircle = document.getElementById("outerCircle");
 let innerPath = document.getElementById("innerPath");
