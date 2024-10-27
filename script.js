@@ -23,7 +23,15 @@ let inputValueTwo = document.getElementById("input2");
 let btnOne = document.getElementById("btn1");
 let btnTwo = document.getElementById("btn2");
 let bookText = document.querySelector(".booked-text");
-let selectBtns = document.querySelectorAll(".select")
+let selectBtns = document.querySelectorAll(".select");
+let backers = document.getElementById("backers")
+let backed = document.getElementById("backed")
+let progress = document.querySelector("progress")
+let initialBackedAmount = parseInt(backed.textContent.replace(/[$,]/g, ''), 10);
+
+
+progress.style.width = (initialBackedAmount / 100000) * 100 + '%';
+
 
 // Show success modal and reset modals when "done" button is clicked
 done.addEventListener("click", () => {
@@ -37,20 +45,55 @@ done.addEventListener("click", () => {
 // Handle "Continue" buttons based on input validation
 btnOne.addEventListener("click", function (e) {
   e.preventDefault(); 
+
   let valueOne = parseInt(inputValueOne.value); 
   if (isNaN(valueOne) || valueOne < 25) {
     return;
   }
+
   successModal.classList.remove("none");
+
+  let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
+  let currentBackers = parseInt(backers.textContent.replace(/[^0-9]/g, ''), 10);
+
+  if (currentBacked >= 100000) {
+    selectBtns.forEach(btn => btn.disabled = true);
+    return;
+  }
+  
+  backed.textContent = "$" + (currentBacked + valueOne).toLocaleString();
+  backers.textContent = (currentBackers + 1).toLocaleString();
+
+  let newBacked = currentBacked + valueOne; 
+  let progressPercentage = (newBacked / 100000) * 100;
+  progress.style.width = progressPercentage + '%';
+
 });
 
 btnTwo.addEventListener("click", function (e) {
   e.preventDefault(); 
+
   let valueTwo = parseInt(inputValueTwo.value);
   if (isNaN(valueTwo) || valueTwo < 75) {
     return;
   }
   successModal.classList.remove("none");
+
+  let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
+  let currentBackers = parseInt(backers.textContent.replace(/[^0-9]/g, ''), 10);
+
+  if (currentBacked >= 100000) {
+    selectBtns.forEach(btn => btn.disabled = true);
+    return;
+  }
+  
+  backed.textContent = "$" + (currentBacked + valueTwo).toLocaleString();
+  backers.textContent = (currentBackers + 1).toLocaleString();
+
+  let newBacked = currentBacked + valueTwo; 
+  let progressPercentage = (newBacked / 100000) * 100;
+  progress.style.width = progressPercentage + '%';
+
 });
 
 radio.addEventListener('change', function () {
@@ -135,11 +178,45 @@ function resetRadioSelection() {
   });
 }
 
-selectBtns.forEach( (selectBtn, i) => {
-  selectBtn.addEventListener('click', ()=>{
-    successModal.classList.remove("none")
-  })
-})
+selectBtns[0].addEventListener('click', () => {
+  let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
+  let currentBackers = parseInt(backers.textContent.replace(/[^0-9]/g, ''), 10);
+
+  if (currentBacked >= 100000) {
+    selectBtns.forEach(btn => btn.disabled = true);
+    return;
+  }
+
+  backed.textContent = "$" + (currentBacked + 25).toLocaleString();
+  backers.textContent = (currentBackers + 1).toLocaleString();
+
+  successModal.classList.remove("none");
+
+  let newBacked = currentBacked + 25; 
+  let progressPercentage = (newBacked / 100000) * 100;
+  progress.style.width = progressPercentage + '%';
+});
+
+selectBtns[1].addEventListener('click', () => {
+  let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
+  let currentBackers = parseInt(backers.textContent.replace(/[^0-9]/g, ''), 10);
+
+  if (currentBacked >= 100000) {
+    selectBtns.forEach(btn => btn.disabled = true);
+    return;
+  }
+
+  backed.textContent = "$" + (currentBacked + 75).toLocaleString();
+  backers.textContent = (currentBackers + 1).toLocaleString();
+
+  successModal.classList.remove("none")
+
+  let newBacked = currentBacked + 75; 
+  let progressPercentage = (newBacked / 100000) * 100;
+  progress.style.width = progressPercentage + '%';
+});
+
+
 
 
 
