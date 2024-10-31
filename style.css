@@ -486,7 +486,29 @@ input[type = "radio"]:checked{
 .booked{
     background-color: rgb(219, 255, 255);
     color: var(--Dark-cyan);
-    content: "ed";
+}
+
+footer {
+    padding: 20px;
+    color: var(--Black);
+    text-align: center;
+}
+  
+footer .social-links p {
+    font-size: 16px;
+    margin: 0;
+}
+  
+footer .social-links a {
+    color: var(--Moderate-cyan); 
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+  
+footer .social-links a:hover {
+    color: var(--Dark-cyan);
+    text-decoration: underline;
 }
 
 @media(max-width: 768px) {
