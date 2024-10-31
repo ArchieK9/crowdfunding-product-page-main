@@ -1,6 +1,5 @@
-"use strict";
+"use strict"
 
-// DOM element reference
 let book = document.getElementById("book");
 let outerCircle = document.getElementById("outerCircle");
 let innerPath = document.getElementById("innerPath");
@@ -27,22 +26,17 @@ let selectBtns = document.querySelectorAll(".select");
 let backers = document.getElementById("backers")
 let backed = document.getElementById("backed")
 let progress = document.querySelector("progress")
-let initialBackedAmount = parseInt(backed.textContent.replace(/[$,]/g, ''), 10);
 
 
-progress.style.width = (initialBackedAmount / 100000) * 100 + '%';
-
-
-// Show success modal and reset modals when "done" button is clicked
 done.addEventListener("click", () => {
   successModal.classList.add("none");
   selectedModal.classList.add("none");
-  resetRadioSelection(); // Clear radio selection when modal closes
+  resetRadioSelection(); 
   inputValueOne.value = ''
   inputValueTwo.value = ''
 });
 
-// Handle "Continue" buttons based on input validation
+
 btnOne.addEventListener("click", function (e) {
   e.preventDefault(); 
 
@@ -63,11 +57,6 @@ btnOne.addEventListener("click", function (e) {
   
   backed.textContent = "$" + (currentBacked + valueOne).toLocaleString();
   backers.textContent = (currentBackers + 1).toLocaleString();
-
-  let newBacked = currentBacked + valueOne; 
-  let progressPercentage = (newBacked / 100000) * 100;
-  progress.style.width = progressPercentage + '%';
-
 });
 
 btnTwo.addEventListener("click", function (e) {
@@ -89,11 +78,6 @@ btnTwo.addEventListener("click", function (e) {
   
   backed.textContent = "$" + (currentBacked + valueTwo).toLocaleString();
   backers.textContent = (currentBackers + 1).toLocaleString();
-
-  let newBacked = currentBacked + valueTwo; 
-  let progressPercentage = (newBacked / 100000) * 100;
-  progress.style.width = progressPercentage + '%';
-
 });
 
 radio.addEventListener('change', function () {
@@ -104,6 +88,7 @@ radio.addEventListener('change', function () {
     resetRadioSelection();
   })
 })
+
 
 // Show pledge form when the associated radio is selected
 // radio1.forEach(radio => {
@@ -157,7 +142,7 @@ book.addEventListener('click', function () {
   changeColor();
 });
 
-// Function to toggle colors of SVG elements
+
 function changeColor() {
   let outerColor = outerCircle.getAttribute('fill') === '#2F2F2F' ? 'hsl(176, 50%, 47%)' : '#2F2F2F';
   let innerColor = innerPath.getAttribute('fill') === '#B1B1B1' ? 'white' : '#B1B1B1';
@@ -165,18 +150,18 @@ function changeColor() {
   innerPath.setAttribute('fill', innerColor);
 }
 
-// Function to reset radio selections and hide all pledge forms
 function resetRadioSelection() {
   radios.forEach((r, i) => {
-      r.checked = false; // Clear the checked state
+      r.checked = false; 
       console.log(r,i)
       radio.checked= false
   });
 
   selectedPledgeStart.forEach(pledge => {
-    pledge.classList.add("none"); // Hide all pledge forms
+    pledge.classList.add("none"); 
   });
 }
+
 
 selectBtns[0].addEventListener('click', () => {
   let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
@@ -197,6 +182,8 @@ selectBtns[0].addEventListener('click', () => {
   progress.style.width = progressPercentage + '%';
 });
 
+
+
 selectBtns[1].addEventListener('click', () => {
   let currentBacked = parseInt(backed.textContent.replace(/[^0-9]/g, ''), 10);
   let currentBackers = parseInt(backers.textContent.replace(/[^0-9]/g, ''), 10);
@@ -215,8 +202,3 @@ selectBtns[1].addEventListener('click', () => {
   let progressPercentage = (newBacked / 100000) * 100;
   progress.style.width = progressPercentage + '%';
 });
-
-
-
-
-
