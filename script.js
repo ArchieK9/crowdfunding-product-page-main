@@ -176,10 +176,6 @@ selectBtns[0].addEventListener('click', () => {
   backers.textContent = (currentBackers + 1).toLocaleString();
 
   successModal.classList.remove("none");
-
-  let newBacked = currentBacked + 25; 
-  let progressPercentage = (newBacked / 100000) * 100;
-  progress.style.width = progressPercentage + '%';
 });
 
 
@@ -196,9 +192,5 @@ selectBtns[1].addEventListener('click', () => {
   backed.textContent = "$" + (currentBacked + 75).toLocaleString();
   backers.textContent = (currentBackers + 1).toLocaleString();
 
-  successModal.classList.remove("none")
-
-  let newBacked = currentBacked + 75; 
-  let progressPercentage = (newBacked / 100000) * 100;
-  progress.style.width = progressPercentage + '%';
+  successModal.classList.remove("none")
 });
