@@ -24,8 +24,7 @@ let btnTwo = document.getElementById("btn2");
 let bookText = document.querySelector(".booked-text");
 let selectBtns = document.querySelectorAll(".select");
 let backers = document.getElementById("backers")
-let backed = document.getElementById("backed")
-let progress = document.querySelector("progress")
+let backed = document.getElementById("backed")
 
 
 done.addEventListener("click", () => {
