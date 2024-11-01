@@ -175,7 +175,7 @@ selectBtns[0].addEventListener('click', () => {
   backed.textContent = "$" + (currentBacked + 25).toLocaleString();
   backers.textContent = (currentBackers + 1).toLocaleString();
 
-  successModal.classList.remove("none");
+  successModal.classList.remove("none")
 });
 
 
