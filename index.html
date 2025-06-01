@@ -53,13 +53,13 @@
         <button id="back">Back this project</button>
         <button id="book">
           <svg id="svgElement" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-              <g fill="none" fill-rule="evenodd">
-                  <circle id="outerCircle" fill="#2F2F2F" cx="28" cy="28" r="28"/>
-                  <path id="innerPath" fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/>
-              </g>
+            <g fill="none" fill-rule="evenodd">
+              <circle id="outerCircle" fill="#2F2F2F" cx="28" cy="28" r="28" />
+              <path id="innerPath" fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+            </g>
           </svg>
           <p class="booked-text">Bookmark</p>
-      </button>
+        </button>
       </div>
 
     </div>
@@ -68,9 +68,15 @@
 
       <div class="numbers">
 
-        <div class="border"> <b>$89,914</b> <p>of $100,000 backed</p></div>
-        <div class="border"> <b>5,007</b> <p>total backers</p></div>
-        <div> <b>56</b> <p>days left</p></div>
+        <div class="border"> <b id="backed">$89,914</b>
+          <p>of $100,000 backed</p>
+        </div>
+        <div class="border"> <b id="backers">5,007</b>
+          <p>total backers</p>
+        </div>
+        <div> <b>56</b>
+          <p>days left</p>
+        </div>
 
       </div>
 
@@ -167,11 +173,12 @@
 
       </div>
     </section>
-<!--         <footer>
+    <footer>
       <div class="social-links">
         <p>Find me on Twitter: <a href="https://www.twitter.com/ArchieJK9" target="_blank">@ArchieJK9</a></p>
       </div>
-    </footer> -->
+    </footer>
+    
   </main>
 
   <div class="selection-modal-start none">
@@ -187,7 +194,7 @@
         <img src="./images/icon-close-modal.svg" alt="icon-close-modal" id="exit">
 
       </div>
-  
+
       <p>
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
       </p>
@@ -220,24 +227,24 @@
     </div>
 
     <div class="pledge">
-        
+
       <div class="first">
 
         <div>
           <form action="" class="myForm">
             <label for="toggle">
               <input type="radio" name="pledge" class="drop drop-1" data-target="pledge1">
-              
+
             </label>
           </form>
 
           <div class="price">
-  
+
             <div>
               <h1>Bamboo Stand</h1>
               <span>Pledge $25 or more</span>
             </div>
-    
+
             <div>
               <span>
                 <h1>101</h1>
@@ -292,7 +299,7 @@
               <h1>Black Edition Stand</h1>
               <span>Pledge $75 or more</span>
             </div>
-  
+
             <div>
               <span>
                 <h1>64</h1>
@@ -326,7 +333,7 @@
           </div>
         </form>
       </div>
-    </div>  
+    </div>
 
     <div class="pledge">
 
@@ -344,20 +351,20 @@
               <h1>Mahogany Special Edition</h1>
               <span>Pledge $200 or more</span>
             </div>
-  
+
             <div>
               <span>
                 <h1>0</h1>
                 <p>left</p>
               </span>
             </div>
-  
+
           </div>
         </div>
 
         <div class="con">
           <p>
-            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. 
+            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.
             You’ll be added to our Backer member list. Shipping is included.
           </p>
           <span class="mobile">
@@ -366,10 +373,10 @@
           </span>
         </div>
       </div>
-       <!-- Selection modal end -->
+      <!-- Selection modal end -->
     </div>
-  </div>  
-  
+  </div>
+
   <div class="Success-modal-start none">
     <!-- Success modal start -->
     <img src="./images/icon-check.svg" alt="icon-check">
@@ -379,7 +386,7 @@
     </h1>
 
     <p>
-      Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. 
+      Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
       You will get an email once our campaign is completed.
     </p>
 
@@ -389,4 +396,5 @@
   </div>
 </body>
 <script src="script.js"></script>
+
 </html>
